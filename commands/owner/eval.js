@@ -1,4 +1,6 @@
 const { inspect } = require("util");
+const profileSchema = require("../../models/profileSchema");
+
 module.exports = {
     name: "evaluate",
     aliases: ["eval"],

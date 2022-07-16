@@ -15,19 +15,17 @@ module.exports = {
             const items = await getShopItems(apiKey, language);
             await generateShop(items, watermark);
 
-            other = message.guild.channels.cache.get("880848398633287720");
-
             const attachment = new MessageAttachment("./shop.jpeg", "sample.jpeg");
 
-            other.send(attachment).then((msg) => {
-              const embed = new MessageEmbed().setTitle("Today's Item Shop").setImage(msg.attachments.first().url).setColor("RANDOM");
-              loadingMsg.delete().catch();
-              message.channel.send("Today's Item Shop", embed);
-              
-              try {
-                fs.unlinkSync("./shop.jpeg");
-              } catch {}
-            });
+            message.channel.send({ files: [attachment] }).then((msg) => {
+							const embed = new MessageEmbed().setTitle("Today's Item Shop").setImage(msg.attachments.first().url).setColor("RANDOM");
+							loadingMsg.delete().catch();
+							message.channel.send("Today's Item Shop", embed);
+
+							try {
+								fs.unlinkSync("./shop.jpeg");
+							} catch {}
+						});
         });
     }
 }

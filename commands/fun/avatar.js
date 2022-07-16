@@ -6,7 +6,7 @@ module.exports = {
     description: "Brodcast someone's avatar",
     permissions: ["SEND_MESSAGES"],
     run : async(client, message, args, Discord) => {
-        targetUser = message.mentions.users.first().id || args[0] || message.author.id  
+        targetUser = message.mentions.users.first()?.id || args[0] || message.author.id  
         let target = client.users.cache.get(targetUser)
         let avatar = target.displayAvatarURL({size: 1024, dynamic: true})
 
