@@ -34,9 +34,3 @@ module.exports = (client) => {
         }
       });
 }
-
-// this needs to be upgraded yep you're right il do it
-
-
-
-// this is discord V12.0, now Im moving to v13.0 and Im trying to upgrade everything as I go along
